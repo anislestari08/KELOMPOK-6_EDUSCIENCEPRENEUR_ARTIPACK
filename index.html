@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARTIPACK!</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:Arial;background:#FFFDF9;color:#1F1F1F;font-size:17px;line-height:1.6}
+nav{background:#fff;padding:14px;text-align:center;position:sticky;top:0;z-index:9;border-bottom:2px solid #FFE0B8}
+nav b{font-size:1.6rem;color:#1F1F1F;display:block;margin-bottom:6px}
+nav b span{color:#FF7A00}
+nav a{color:#1F1F1F;margin:0 6px;cursor:pointer;font-weight:600;display:inline-block;padding:8px 12px;border-radius:20px}
+nav a:hover{color:#fff;background:#FF7A00}
+nav a.shop{background:#FF7A00;color:#fff;padding:9px 18px;border-radius:30px;margin-top:8px;font-weight:700;display:inline-block}
+section{padding:34px 18px;max-width:800px;margin:0 auto}
+h1{font-size:2rem;text-align:center;margin-bottom:12px}
+h1 span{color:#FF7A00}
+h2{font-size:1.6rem;text-align:center;margin-bottom:12px}
+h2 span{color:#FF7A00}
+p{text-align:center;color:#555;margin-bottom:16px}
+.hero{background:#FFF6EA;padding:30px 20px;border-radius:22px;text-align:center;border:2px solid #FFE0B8}
+.hero svg{width:240px;max-width:70%;margin:16px auto;display:block;animation:heroFloat 4s ease-in-out infinite}
+@keyframes heroFloat{0%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-18px) rotate(2deg)}100%{transform:translateY(0) rotate(-2deg)}}
+.btn{padding:13px 24px;border-radius:28px;border:none;font-weight:700;cursor:pointer;font-size:1rem;margin:4px;font-family:inherit}
+.bg{background:#FF7A00;color:#fff}
+.bo{background:#fff;color:#1F1F1F;border:2px solid #1F1F1F}
+.bw{background:#25D366;color:#fff}
+.kartu{background:#fff;border-radius:20px;box-shadow:0 8px 24px rgba(255,122,0,.1);margin-bottom:22px;border:2px solid #FFE0B8;overflow:hidden}
+.kartu .gbr{background:#FFF6EA;padding:18px;text-align:center;border-bottom:2px dashed #FF7A00}
+.kartu .gbr svg{width:130px;animation:packFloat 3.5s ease-in-out infinite}
+.kartu:nth-child(2) .gbr svg{animation-delay:.3s}
+.kartu:nth-child(3) .gbr svg{animation-delay:.6s}
+.kartu:nth-child(4) .gbr svg{animation-delay:.9s}
+@keyframes packFloat{0%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}100%{transform:translateY(0) rotate(-2deg)}}
+.tag{display:inline-block;background:#FF7A00;color:#fff;padding:5px 16px;border-radius:25px;font-weight:800;font-size:.8rem;margin-bottom:10px}
+.body{padding:18px}
+.body h3{font-size:1.25rem;margin-bottom:6px;text-align:center}
+.body .uk{color:#E56A00;font-weight:700;text-align:center;margin-bottom:10px}
+.body .ds{color:#555;text-align:center;margin-bottom:12px;font-size:.95rem}
+.body .list{background:#FFFDF9;border-radius:10px;padding:10px 16px;margin-bottom:14px;list-style:none}
+.body .list li{padding:7px 0;border-bottom:1px dashed #FF7A00;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-size:.95rem}
+.body .list li:last-child{border-bottom:none}
+.body .list li strong{color:#1F1F1F;font-weight:800}
+.body button{display:block;width:100%;padding:13px;border-radius:10px;border:none;font-weight:800;cursor:pointer;font-size:1rem;margin-bottom:8px;font-family:inherit}
+.mo{color:#E56A00;font-weight:700;text-align:center;margin-bottom:10px;font-size:.92rem}
+.op{background:#FFF6EA;padding:26px 18px;border-radius:18px;text-align:center;border:2px solid #FFE0B8}
+.op .st{display:inline-block;padding:9px 22px;border-radius:25px;font-weight:800;margin-bottom:14px}
+.op .open{background:#d4f5dd;color:#1a7f4b}
+.op .closed{background:#fdd;color:#c1121f}
+.op .tm{font-size:1.7rem;font-weight:800}
+.op .dy{color:#666;margin-bottom:10px}
+.kk{background:#fff;padding:18px;border-radius:14px;text-align:center;margin-bottom:12px;cursor:pointer;border:2px solid #FFE0B8}
+.kk:hover{border-color:#FF7A00}
+.kk h4{margin-bottom:5px;font-size:1.1rem}
+.kk p{color:#555;font-size:.95rem;margin:0;word-break:break-word}
+.pay{background:#fff;padding:18px;border-radius:14px;margin-bottom:12px;border:2px solid #FFE0B8}
+.pay h4{color:#FF7A00;font-size:1.1rem;margin-bottom:10px;text-align:center}
+.pay .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #FFE0B8;flex-wrap:wrap;gap:5px}
+.pay .row span{color:#666}
+.pay .row strong{color:#1F1F1F;font-weight:800;word-break:break-all}
+.pay .copy{background:#FF7A00;color:#fff;border:none;padding:9px;border-radius:18px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit;width:100%;margin-top:9px}
+.free{background:#FFF6EA;padding:18px;border-radius:14px;text-align:center;border:2px dashed #FF7A00;margin-top:18px}
+.free h4{color:#C75400;font-size:1.15rem;margin-bottom:5px}
+footer{background:#1F1F1F;color:#bbb;text-align:center;padding:26px 18px;margin-top:22px;border-top:5px solid #FF7A00}
+footer b{color:#FFB566;font-size:1.4rem}
+.cart{position:fixed;bottom:18px;right:18px;background:#FF7A00;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;cursor:pointer;box-shadow:0 8px 25px rgba(255,122,0,.5);border:4px solid #fff;z-index:998}
+.cc{position:absolute;top:-6px;right:-6px;background:#1F1F1F;color:#FFB566;font-size:.8rem;font-weight:800;min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0 5px;border:3px solid #fff}
+.modal{position:fixed;inset:0;background:rgba(31,31,31,.75);display:none;align-items:center;justify-content:center;z-index:997;padding:18px}
+.modal.show{display:flex}
+.mbox{background:#fff;border-radius:20px;padding:22px;max-width:440px;width:100%;border-top:8px solid #FF7A00;max-height:85vh;overflow-y:auto}
+.mbox h3{text-align:center;margin-bottom:14px;font-size:1.2rem}
+.cl{list-style:none;max-height:280px;overflow-y:auto;margin-bottom:12px}
+.cl li{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#FFF6EA;border-radius:10px;margin-bottom:6px;font-weight:600;border-left:5px solid #FF7A00;gap:8px;font-size:.92rem}
+.cl li span{flex:1}
+.cl li button{background:#ff5c5c;color:#fff;border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;font-weight:800}
+.tt{text-align:right;font-weight:800;font-size:1.05rem;padding-top:12px;border-top:2px dashed #FFE0B8;margin-bottom:12px}
+.ca{display:flex;gap:8px}
+.ca button{flex:1;padding:12px;border-radius:10px;border:none;font-weight:700;cursor:pointer;font-family:inherit;font-size:.95rem}
+.bc2{background:#eee;color:#1F1F1F}
+.bk{background:#25D366;color:#fff}
+</style>
+</head>
+<body>
+
+<nav>
+<b>ARTI<span>PACK!</span> 📦</b>
+<div>
+<a onclick="g('home')">Beranda</a>
+<a onclick="g('katalog')">Katalog</a>
+<a onclick="g('bayar')">Pembayaran</a>
+<a onclick="g('tentang')">Tentang</a>
+<a onclick="g('kontak')">Kontak</a>
+</div>
+<br><a class="shop" onclick="g('katalog')">🛒 Belanja Sekarang</a>
+</nav>
+
+<section id="home">
+<div class="hero">
+<h1>Your Product, <span>Our Packaging.</span></h1>
+<p>Bikin produkmu tampil maksimal! Kemasan modern, praktis, aesthetic. 💛</p>
+<p style="font-weight:700;color:#1F1F1F">🌿 Produk lokal, 📦 Kemasan maksimal!</p>
+<svg viewBox="0 0 300 420">
+<defs>
+<linearGradient id="o1" x1="0" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#FFD9A8"/><stop offset="50%" stop-color="#FFB566"/><stop offset="100%" stop-color="#E56A00"/></linearGradient>
+<linearGradient id="dk" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1F1F1F"/><stop offset="100%" stop-color="#3a3a3a"/></linearGradient>
+</defs>
+<ellipse cx="150" cy="415" rx="110" ry="8" fill="#FF7A00" opacity=".25"/>
+<rect x="30" y="6" width="240" height="50" rx="10" fill="url(#dk)"/>
+<line x1="55" y1="31" x2="245" y2="31" stroke="#FF7A00" stroke-width="3" stroke-dasharray="8 6"/>
+<rect x="105" y="18" width="90" height="26" rx="8" fill="url(#o1)"/>
+<text x="150" y="36" text-anchor="middle" font-family="Arial" font-size="12" font-weight="900" fill="#fff">ZIP LOCK</text>
+<path d="M 40 58 Q 40 48 50 48 L 250 48 Q 260 48 260 58 L 260 390 Q 260 408 240 408 L 60 408 Q 40 408 40 390 Z" fill="url(#o1)" stroke="#FF7A00" stroke-width="1.5"/>
+<rect x="40" y="160" width="220" height="110" fill="url(#dk)"/>
+<text x="150" y="110" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-style="italic" font-weight="bold" fill="#fff">ARTIPACK!</text>
+<text x="150" y="135" text-anchor="middle" font-family="Arial" font-size="9" font-weight="900" fill="#1F1F1F" letter-spacing="3">YOUR PRODUCT • OUR PACKAGING</text>
+<text x="150" y="238" text-anchor="middle" font-size="72">🛍️</text>
+<rect x="75" y="290" width="150" height="46" rx="23" fill="#fff" stroke="#FF7A00" stroke-width="2"/>
+<text x="150" y="320" text-anchor="middle" font-family="Arial" font-size="17" font-weight="900" fill="#C75400">ZIPLOCK PACK</text>
+</svg>
+<button class="btn bg" onclick="g('katalog')">🛒 Lihat Katalog</button>
+<button class="btn bo" onclick="g('tentang')">📖 Tentang Kami</button>
+</div>
+</section>
+
+<section id="katalog">
+<h2>📦 Katalog <span>ARTIPACK</span></h2>
+<p>Pilih paket sesuai kebutuhanmu!</p>
+
+<div class="kartu">
+<div class="gbr"><span class="tag">PAKET 1</span>
+<svg viewBox="0 0 240 300"><defs><linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFEEDD"/><stop offset="100%" stop-color="#FFB566"/></linearGradient><linearGradient id="q1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1F1F1F"/><stop offset="100%" stop-color="#3a3a3a"/></linearGradient></defs><rect x="30" y="6" width="180" height="36" rx="8" fill="url(#q1)"/><line x1="48" y1="24" x2="192" y2="24" stroke="#FF7A00" stroke-width="2" stroke-dasharray="6 4"/><rect x="85" y="14" width="70" height="20" rx="6" fill="url(#p1)"/><text x="120" y="28" text-anchor="middle" font-family="Arial" font-size="9" font-weight="900" fill="#fff">ZIP</text><path d="M35 42 Q35 34 42 34 L198 34 Q205 34 205 42 L205 270 Q205 285 190 285 L50 285 Q35 285 35 270 Z" fill="url(#p1)" stroke="#FF7A00" stroke-width="1.5"/><rect x="35" y="110" width="170" height="70" fill="url(#q1)"/><text x="120" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="18" font-style="italic" font-weight="bold" fill="#fff">ARTIPACK!</text><text x="120" y="155" text-anchor="middle" font-size="46">📦</text><rect x="65" y="200" width="110" height="32" rx="16" fill="#fff" stroke="#FF7A00"/><text x="120" y="221" text-anchor="middle" font-family="Arial" font-size="12" font-weight="900" fill="#C75400">PACK 1</text></svg>
+</div>
+<div class="body">
+<h3>Plastik Ziplock Saja</h3>
+<div class="uk">Pilih ukuran</div>
+<p class="ds">Plastik ziplock premium food grade.</p>
+<ul class="list">
+<li>50 gram <strong>Rp500 / pcs</strong></li>
+<li>100 gram <strong>Rp800 / pcs</strong></li>
+<li>250 gram <strong>Rp1.500 / pcs</strong></li>
+<li>500 gram <strong>Rp2.500 / pcs</strong></li>
+</ul>
+<p class="mo">⚠️ Minimal order 10 pcs</p>
+<button class="bg" onclick="tambah('Paket 1: Ziplock Saja')">🛒 Tambah ke Keranjang</button>
+<button class="bw" onclick="wa('Paket 1: Ziplock Saja')">💬 Order WhatsApp</button>
+</div>
+</div>
+
+<div class="kartu">
+<div class="gbr"><span class="tag">PAKET 2</span>
+<svg viewBox="0 0 240 300"><defs><linearGradient id="p2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFEEDD"/><stop offset="100%" stop-color="#FFB566"/></linearGradient><linearGradient id="q2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1F1F1F"/><stop offset="100%" stop-color="#3a3a3a"/></linearGradient></defs><rect x="30" y="6" width="180" height="36" rx="8" fill="url(#q2)"/><line x1="48" y1="24" x2="192" y2="24" stroke="#FF7A00" stroke-width="2" stroke-dasharray="6 4"/><rect x="85" y="14" width="70" height="20" rx="6" fill="url(#p2)"/><text x="120" y="28" text-anchor="middle" font-family="Arial" font-size="9" font-weight="900" fill="#fff">ZIP</text><path d="M35 42 Q35 34 42 34 L198 34 Q205 34 205 42 L205 270 Q205 285 190 285 L50 285 Q35 285 35 270 Z" fill="url(#p2)" stroke="#FF7A00" stroke-width="1.5"/><rect x="35" y="110" width="170" height="70" fill="url(#q2)"/><text x="120" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="18" font-style="italic" font-weight="bold" fill="#fff">ARTIPACK!</text><text x="120" y="155" text-anchor="middle" font-size="46">🎨</text><rect x="65" y="200" width="110" height="32" rx="16" fill="#fff" stroke="#FF7A00"/><text x="120" y="221" text-anchor="middle" font-family="Arial" font-size="12" font-weight="900" fill="#C75400">PACK 2</text></svg>
+</div>
+<div class="body">
+<h3>Ziplock + Desain Stiker</h3>
+<div class="uk">Free konsultasi desain</div>
+<p class="ds">Ziplock + desain stiker custom.</p>
+<ul class="list">
+<li>50 gram <strong>Rp3.500</strong></li>
+<li>100 gram <strong>Rp5.000</strong></li>
+<li>250 gram <strong>Rp15.000</strong></li>
+<li>500 gram <strong>Rp30.000</strong></li>
+</ul>
+<p class="mo">⚠️ Minimal order 10 pcs</p>
+<button class="bg" onclick="tambah('Paket 2: Ziplock + Desain')">🛒 Tambah ke Keranjang</button>
+<button class="bw" onclick="wa('Paket 2: Ziplock + Desain')">💬 Order WhatsApp</button>
+</div>
+</div>
+
+<div class="kartu">
+<div class="gbr"><span class="tag">PAKET 3</span>
+<svg viewBox="0 0 240 320"><defs><linearGradient id="p3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFEEDD"/><stop offset="100%" stop-color="#FFB566"/></linearGradient><linearGradient id="q3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1F1F1F"/><stop offset="100%" stop-color="#3a3a3a"/></linearGradient></defs><rect x="30" y="6" width="180" height="36" rx="8" fill="url(#q3)"/><line x1="48" y1="24" x2="192" y2="24" stroke="#FF7A00" stroke-width="2" stroke-dasharray="6 4"/><rect x="85" y="14" width="70" height="20" rx="6" fill="url(#p3)"/><text x="120" y="28" text-anchor="middle" font-family="Arial" font-size="9" font-weight="900" fill="#fff">ZIP</text><path d="M35 42 Q35 34 42 34 L198 34 Q205 34 205 42 L205 290 Q205 305 190 305 L50 305 Q35 305 35 290 Z" fill="url(#p3)" stroke="#FF7A00" stroke-width="1.5"/><rect x="35" y="115" width="170" height="65" fill="url(#q3)"/><text x="120" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="18" font-style="italic" font-weight="bold" fill="#fff">ARTIPACK!</text><text x="120" y="158" text-anchor="middle" font-size="44">🥔</text><text x="120" y="200" text-anchor="middle" font-size="36">🍟</text><rect x="60" y="225" width="120" height="30" rx="15" fill="#fff" stroke="#FF7A00"/><text x="120" y="245" text-anchor="middle" font-family="Arial" font-size="11" font-weight="900" fill="#C75400">PACK 3</text></svg>
+</div>
+<div class="body">
+<h3>Ziplock + Stiker + Sukun</h3>
+<div class="uk">Best value! 🥔</div>
+<p class="ds">Ziplock + desain stiker + keripik sukun.</p>
+<ul class="list">
+<li>50 gram <strong>Rp5.000</strong></li>
+<li>100 gram <strong>Rp10.000</strong></li>
+<li>250 gram <strong>Rp18.000</strong></li>
+<li>500 gram <strong>Rp35.000</strong></li>
+</ul>
+<button class="bg" onclick="tambah('Paket 3: Ziplock + Stiker + Sukun')">🛒 Tambah ke Keranjang</button>
+<button class="bw" onclick="wa('Paket 3: Ziplock + Stiker + Sukun')">💬 Order WhatsApp</button>
+</div>
+</div>
+
+<div class="kartu">
+<div class="gbr"><span class="tag">CUSTOM</span>
+<svg viewBox="0 0 240 260"><defs><linearGradient id="p4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFEEDD"/><stop offset="100%" stop-color="#FFB566"/></linearGradient></defs><circle cx="120" cy="120" r="95" fill="url(#p4)" stroke="#fff" stroke-width="4"/><text x="120" y="105" text-anchor="middle" font-size="58">🎨</text><text x="120" y="155" text-anchor="middle" font-family="Georgia,serif" font-size="20" font-style="italic" font-weight="bold" fill="#fff">ARTIPACK!</text><text x="120" y="180" text-anchor="middle" font-family="Arial" font-size="10" font-weight="900" fill="#fff">CUSTOM</text></svg>
+</div>
+<div class="body">
+<h3>Custom Packaging</h3>
+<div class="uk">Request Sendiri</div>
+<p class="ds">Request ukuran, desain, stiker sendiri.</p>
+<ul class="list">
+<li>Ukuran <strong>Bebas</strong></li>
+<li>Desain <strong>Bebas</strong></li>
+<li>Stiker <strong>Bebas</strong></li>
+</ul>
+<div style="text-align:center;font-size:1.3rem;font-weight:800;margin-bottom:10px">Rp3.500 <small style="font-size:.85rem;color:#888">/ mulai</small></div>
+<button class="bg" onclick="tambah('Custom Packaging')">🛒 Tambah ke Keranjang</button>
+<button class="bw" onclick="wa('Custom Packaging')">💬 Request Custom</button>
+</div>
+</div>
+
+<div class="free">
+<h4>🚚 GRATIS ONGKIR! 😊</h4>
+<p>Khusus pembelian <strong>Area Telang & sekitarnya</strong> — Free Ongkir! 💛</p>
+</div>
+</section>
+
+<section id="bayar">
+<h2>💳 Metode <span>Pembayaran</span></h2>
+<div class="pay">
+<h4>🚚 COD</h4>
+<div class="row"><span>Metode</span><strong>Bayar saat barang tiba</strong></div>
+<div class="row"><span>Area</span><strong>Area Telang & sekitarnya</strong></div>
+<button class="copy" onclick="wa('Order COD')">💬 Order COD</button>
+</div>
+<div class="pay">
+<h4>🏦 Transfer Bank BRI</h4>
+<div class="row"><span>Bank</span><strong>BRI</strong></div>
+<div class="row"><span>A/N</span><strong>ANIS LESTARI</strong></div>
+<div class="row"><span>No. Rek</span><strong>656201033791535</strong></div>
+<button class="copy" onclick="salin('656201033791535')">📋 Salin No. Rekening</button>
+</div>
+<div class="pay">
+<h4>💜 DANA</h4>
+<div class="row"><span>E-Wallet</span><strong>DANA</strong></div>
+<div class="row"><span>A/N</span><strong>FACHIDATUL AZIZAH</strong></div>
+<div class="row"><span>No. HP</span><strong>+6285236509382</strong></div>
+<button class="copy" onclick="salin('+6285236509382')">📋 Salin No. DANA</button>
+</div>
+</section>
+
+<section id="tentang">
+<h2>🌱 Tentang <span>ARTIPACK</span></h2>
+<p>🌿 Produk lokal, 📦 Kemasan maksimal!</p>
+<div class="kk" style="cursor:default;text-align:left">
+<p style="text-align:left;margin-bottom:12px"><strong>ARTIPACK</strong> merupakan proyek <em>Edusciencepreneur</em> dari kelompok beranggotakan 5 orang. Kami menghadirkan inovasi kemasan plastik klip yang modern, praktis, dan menarik agar produk lokal semakin bernilai dan mudah dikenal.</p>
+<p style="text-align:left;margin-bottom:12px">Kami fokus pada <strong>desain kemasan</strong> yang aesthetic, berkualitas, dan bisa dikustom sesuai kebutuhan brand-mu.</p>
+<ul style="list-style:none;margin-top:12px">
+<li style="background:#FFF6EA;padding:10px 16px;border-radius:10px;border-left:5px solid #FF7A00;margin-bottom:6px;font-weight:700">👩 Anis Lestari</li>
+<li style="background:#FFF6EA;padding:10px 16px;border-radius:10px;border-left:5px solid #FF7A00;margin-bottom:6px;font-weight:700">👩 Naila Shopia</li>
+<li style="background:#FFF6EA;padding:10px 16px;border-radius:10px;border-left:5px solid #FF7A00;margin-bottom:6px;font-weight:700">👩 Indah Ayu Nurrohmah</li>
+<li style="background:#FFF6EA;padding:10px 16px;border-radius:10px;border-left:5px solid #FF7A00;margin-bottom:6px;font-weight:700">👩 Fachidatul Azizah</li>
+<li style="background:#FFF6EA;padding:10px 16px;border-radius:10px;border-left:5px solid #FF7A00;margin-bottom:6px;font-weight:700">👩 Habibatus Salwa</li>
+</ul>
+<p style="text-align:left;margin-top:12px"><strong>📦 ARTIPACK — Bikin Produkmu Tampil Maksimal!</strong></p>
+</div>
+</section>
+
+<section id="kontak">
+<h2>📞 Hubungi <span>Kami</span></h2>
+<div class="kk" onclick="wa('Tanya ARTIPACK')"><h4>💬 WhatsApp</h4><p>085943793412</p></div>
+<div class="kk" onclick="location.href='mailto:anslstr08@gmail.com'"><h4>📧 Email</h4><p>anslstr08@gmail.com</p></div>
+<div class="kk" onclick="window.open('https://maps.google.com/?q=Jalan+Raya+Telang+Kamal+Bangkalan','_blank')"><h4>📍 Alamat</h4><p>Jl. Raya Telang, PO Box 2, Kec. Kamal, Kab. Bangkalan, Madura, Jawa Timur 69162</p></div>
+</section>
+
+<footer>
+<b>ARTIPACK! 📦</b>
+<p>Project Edusciencepreneur</p>
+<p>© 2026 ARTIPACK</p>
+</footer>
+
+<div class="cart" onclick="openCart()">🛒<span class="cc" id="cc">0</span></div>
+<div class="modal" id="modal">
+<div class="mbox">
+<h3>🛒 Keranjang Kamu</h3>
+<ul class="cl" id="cl"></ul>
+<div class="tt" id="tt">Total: Rp0</div>
+<div class="ca">
+<button class="bc2" onclick="closeCart()">Tutup</button>
+<button class="bk" onclick="checkout()">💬 Checkout WA</button>
+</div>
+</div>
+</div>
+
+<script>
+var items=[];
+function g(i){document.getElementById(i).scrollIntoView({behavior:'smooth'})}
+function wa(n){window.open('https://wa.me/6285943793412?text='+encodeURIComponent('Halo ARTIPACK! Saya mau order: '+n),'_blank')}
+function salin(t){navigator.clipboard.writeText(t);alert('Disalin: '+t)}
+function tambah(n){items.push({n:n});document.getElementById('cc').textContent=items.length;alert(n+' masuk keranjang!')}
+function openCart(){var el=document.getElementById('cl');if(items.length===0){el.innerHTML='<li style="justify-content:center;color:#888;padding:20px">Keranjang kosong</li>';document.getElementById('tt').textContent='Total: Rp0'}else{var h='';for(var i=0;i<items.length;i++){h+='<li><span>'+items[i].n+'</span><button onclick="hapus('+i+')">×</button></li>'}el.innerHTML=h;document.getElementById('tt').textContent=items.length+' item'}document.getElementById('modal').classList.add('show')}
+function hapus(i){items.splice(i,1);document.getElementById('cc').textContent=items.length;openCart()}
+function closeCart(){document.getElementById('modal').classList.remove('show')}
+function checkout(){if(items.length===0){alert('Keranjang kosong');return}var m='Halo ARTIPACK! Saya mau order:%0A';for(var i=0;i<items.length;i++){m+='- '+items[i].n+'%0A'}window.open('https://wa.me/6285943793412?text='+m,'_blank')}
+</script>
+</body>
+</html>
